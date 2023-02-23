@@ -1,17 +1,12 @@
+/* refractored code below */
+
 body {
     font-family: "Montserrat";
+    text-align: center;
 }
 
-#title {
-    background-color: #ff4c68;
-    color: white;
-}
-
-.container-fluid {
-    padding: 3% 15%;
-}
-
-
+/* below displays multiple selectors
+being targeted */
 h1,
 h2,
 h3,
@@ -40,6 +35,23 @@ p {
     line-height: 1.5;
 }
 
+/*containers*/
+
+.container-fluid {
+    padding: 7% 15%;
+}
+
+/* sections */
+
+.colored-section {
+    background-color: #ff4c68;
+    color: white;
+}
+
+.white-section {
+    background-color: #fff;
+}
+
 /* Nav Bar */
 
 .navbar {
@@ -61,13 +73,22 @@ p {
     font-weight: thin;
 }
 
-/* download buttons */
+/* buttons */
 
 .download-button {
     margin: 5% 3% 5% 0%;
 }
 
-/* title image */
+/*title section*/
+
+/*this is more specific and specifies which 
+container fluid being targeted since there
+is already a container fluid class that is called out
+-- this is called a "hierarchical selector--*/
+#title .container-fluid {
+    padding: 3% 15%;
+    text-align: left;
+}
 
 .title-image {
     width: 60%;
@@ -78,8 +99,11 @@ p {
     you use # for an ID*/
 
 #features {
-    padding: 7% 15%;
-    background-color: #fff;
+    position: relative;
+}
+
+.feature-title {
+    font-size: 1.5rem;
 }
 
 .feature-box {
@@ -88,11 +112,12 @@ p {
 }
 
 /* Testimonials Section */
-
+/* you can override the background color by applying a 
+style to the id. Remember, there is a hierachy of different selectors.
+id's get preferenced usually over everything else. Next comes classes,
+then the HTML elements (such as h1)*/
 #testimonials {
-    text-align: center;
     background-color: #ef8172;
-    color: #fff;
 }
 
 .testimonial-text {
@@ -100,19 +125,14 @@ p {
     line-height: 1.5;
 }
 
-
 .testimonial-image {
     width: 10%;
     border-radius: 100%;
 }
 
-.carousel-item {
-    padding: 7% 15%;
-}
 
 #press {
     background-color: #ef8172;
-    text-align: center;
     padding-bottom: 3%;
 }
 
@@ -130,19 +150,6 @@ p {
 
 /*CTA Section*/
 
-#cta {
-    background-color: #ff4c68;
-    color: #fff;
-    padding: 7% 15%;
-    text-align: center;
-}
-
-.cta-heading {
-    font-family: "Montserrat-Black";
-    font-size: 3.5rem;
-    line-height: 1.5;
-}
-
 /*with media query, code only gets executed under certain conditions (conditions within the brackets)*/
 @media (max-width: 1028px) {
     #title {
@@ -154,3 +161,7 @@ p {
         transform: rotate(0);
     }
 }
+
+/* when refactoring, repetition isn't needed and should be eliminated */
+
+/* use ID's sparingly. */
